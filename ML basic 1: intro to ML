@@ -117,7 +117,7 @@ train_scaled = (train_input - mean) / std       <- 이것만 해주면 넘파이
 list:           fish_data = [[l, w] for l, w in zip(length, weight)]
 NumPy:          fish_data = np.column_stack((fish_length, fish_weight))
 
-2 타겟을 만들 때 특정한 개수의 1과 0으로 채울 때는
+2 타겟을 만들 때 특정한 개수의 1과 0으로 채울 때는 thing
 list:           fish_target = [1] * 35  + [0] * 14
 NumPy:          fish_target = np.concatenate((np.ones(35), np.zeros(14)))
 
