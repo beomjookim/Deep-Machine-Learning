@@ -88,7 +88,7 @@ k value is 5 by default. thus we do n_neighbors = 3 instead. the result now show
 
 To sum up,
 we used KNN regression model. we put bunch of perch lengths as input and according weights as outputs.
-when we do the program regularly we get underfitting. the main problem was that the model is too simple that it's not trained enough.
+when we do the program regularly we get underfitting. the main problem was that the model is too simple and thus it's not trained enough.
 so we put 3 for n_neighbors instead of 5. now there's no more underfitting problem.
 
 
@@ -117,21 +117,23 @@ Linear Regression: 대표적인 회귀 알고리즘. 비교적 간단하고 성�
 기존의 프로그램에서 제곱으로 만든 데이터를 하나 추가해주고 나머지는 그대로 사용해주는 것이다. 재밌는 점은, 분명 polynomial regression인데 linear regression의 기존 식에 넣는다는 것.
 p 141에 자세히 나와있지만, 어떤 녀석의 제곱 값을 다른 변수로 치환해주면 그게 곧 linear라는 것이다.
 구간을 잘게 나누어 점을 찍고 리니어 식에 넣으면 수많은 짧은 직선들이 모여 큰 곡선을 나타낸다. 우리는 훈련 스코어 0.971, 테스트 스코어 0.978 의 점수를 받는데 그래도 아직 과소적합.
+정확히 말하면 다항은 맞는데 다항 알고리즘을 쓰는 게 아니라 선형 알고리즘에 다항식적 계산을 첨가해주는 것이다. 
+그러니까, 다항식적으로 계산을 해주되 우리가 사용하는 식 자체는 선형이기에 그 단위를 잘게 쪼개어 마치 곡선처럼 보이게끔 해주는 것이다. 엄밀히 말하면 다항을 쓰는 게 아닌 것이다.
 
 
 ● 특성 공학과 규제 Feature Engineering and Regulations
 
 - 다중 회귀 Multiple Regression
 
-다항과 다중은 다른 것이다. 다항은 다항식을 기반으로 한 회귀고, 다중은 여러 개의 특성을 사용한 선형 회귀다.
+다항과 다중은 다른 것이다. 다항은 다항식을 기반으로 한 회귀고, 다중은 여러 개의 특성을 사용한 선형 회귀다. 단순하게, 그냥 인풋이 많고 특성이 많은 상태로 선형을 사용한다는 것이다.
 기존에 우리가 받은 데이터는 56마리의 농어의 길이, 높이, 두께인데 그 중 길이만 사용했다. 당연히 데이터가 추가될수록 프로그램의 정밀성은 높아진다. 이번엔 다중 회귀를 써보자.
 
 이전 절에서처럼 3개의 특성을 각각 제곱하여 추가하는데, 거기에 각 특성을 서로 곱해서 또 다른 특성을 만드는 것.
 이렇게 기존의 특성을 이용해 새로운 특성을 뽑아내는 작업을 특성공학이라 한다.
 함수를 직접 손으로 건드릴 필요가 없고 특성공학을 처리할 사이킷런의 도구를 쓰면 된다.
 
-기존보다 특성이 늘어나 매번 데이터를 복사해 붙여넣는 것도 번거로와서, 인터넷에서 데이터를 다운할 수도 없고 어째야 하나 이런 의문이 든다면, 바로 판다스 Pandas 쓰면 됨.
-Pandas는 데이터 분석 라이브러리. dataframe은 판다스의 핵심 데이터 구조. 넘파이 배열과 비슷하게 다차원 배열을 다룰 수 있지만 훨 많은 기능을 제공. 킹파이보다 한 수 위라니.
-또 데이터프레임은 넘파이 배열로 쉽게 바꿀 수 있다.
+기존보다 특성이 늘어나 매번 데이터를 복사해 붙여넣는 것도 번거로워서, 인터넷에서 데이터를 다운할 수도 없고 어째야 하나 이런 의문이 든다면, 바로 판다스 Pandas 쓰면 됨.
+Pandas는 데이터 분석 라이브러리. dataframe은 판다스의 핵심 데이터 구조. Numpy와 비슷하게 다차원 배열을 다룰 수 있지만 훨 많은 기능을 제공. 킹파이보다 한 수 위라니.
+또 데이터프레임은 넘파이 배열로 쉽게 바꿀 수 있다. to_numpy() 함수를 사용하면 된다.
 
-##### on 3/31: return to here and restart from this place!!
+##### on 3/31: return to here and restart from this place!!!
