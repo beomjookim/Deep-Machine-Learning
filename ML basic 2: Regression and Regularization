@@ -1,0 +1,127 @@
+21.03.30.   [p112 ~ p]
+Chapter 03. Regression and Regularization 회귀 알고리즘과 모델 규제
+
+꽉 채우면 10번 왕복 가능 즉, 이변 없으면 두 주 동안 가능함.
+
+오늘 진행한 프로그램:
+https://colab.research.google.com/drive/1DWbzOHHMGl625IXIUkzvT4_RIC889MVW
+
+<today's timeline>
+~1030: ch 1, 2 recap
+~1200: go over 3-1
+~1500: go over 3-2
+~1700: go over 3-3
+~1830: finalize and solve problems
+
+
+● 들어가기 전에: 챕터 1, 2 복습 및 점검
+
+1940년대부터 발전하기 시작한 인공지능은, 1970년대와 1990년에 두 차례의 겨울을 맞았다. 그러나 그 외의 기간 동안에는 대부분 문제없이 발전을 해왔고, 2차 겨울 이후에는 꾸준히 발전 중이다.
+오픈소스와 클라우드 시스템의 영향으로 전 세계적인 협동 개발 및 발전에 힘입어 머신러닝, 딥러닝, 그 외에 AI 관련 분야까지 유래없는 성장을 진행 중이다.
+슬슬 인간의 삶에 영향을 미치기 시작하면서, 일반인들도 AI의 기술적 배경에 관심을 둔다. 이러한 상황에서 소프트웨어 엔지니어들에게 AI 역량을 기대하는 건 어찌보면 당연한 일이다.
+나는 현재 대학생 신분인 내가 AI와 머신러닝을 다루는 포지션인것에 큰 의미를 두고, 내가 다루는 내용 그 이상으로 역량을 키워나간다는 생각으로 인턴십과 프로젝트에 임한다.
+
+AI > ML > DL: 머신 러닝은 컴퓨터가 자동으로 데이터에서 규칙을 학습하게끔 하는 분야. 딥러닝은 머신 러닝 중에서 인공신경망을 기반으로한 방법들.
+
+마켓 예제에서 다룬 중요한 것들:
+마켓 예제: 도미와 빙어 수십마리의 데이터를 한 데 섞어서 컴퓨터에게 학습시킨 후, 임의의 데이터를 컴퓨터에게 주고 빙어인지 도미인지 식별할 수 있게끔 하는 머신러닝 프로그램을 한다.
+-> KNN 알고리즘을 사용했다. 수많은 데이터들을 컴퓨터에게 주고, 샘플을 넣으면 거리상 가장 가까운 데이터들을 확인, 해당 모집단 중 가장 많은 녀석으로 배정하는 알고리즘.
+
+1. bream_length, bream_weight, smelt_length, smelt_weight 의 데이터를 가지고 시작한다. 
+2. 우선 시각화하기 위해서, matplotlib 모듈의 pyplot 모듈을 사용한다. 그 안의 scatter, xlabel, ylable, show의 함수들을 사용.
+3. scikit learn 머신러닝 라이브러리를 활용한다. 사이킷런은 인풋으로 2차원 리스트를 요구하기 때문에 우리의 데이터를 그렇게 바꿔줌.
+    (1) 기존의 리스트를 사용하여
+        fish_data = [[l,w] for l,w in zip(length, weight)]                  <-- [x for x in zip(k)], k라는 리스트 내부의 x라는 원소들로 리스트화 시키는 좋은 구문과 zip함수.
+        fish_target = [1] * 35 + [0] * 14                                   <-- 타겟 값까지 확인.
+    (2) 넘파이를 사용하면
+        fish_data = numpy.column_stack((fish_length, fish_weight))          <-- 넘파이의 함수 중 하나인 column_stack 함수로 바로 줄세우기
+        fish_target = numpy.concatenate((numpy.ones(35), numpy.zeros(14)))  <-- 1과 0을 개수만큼!      
+4. scikit learn 패키지와, 그 안의 모듈 중에 하나인 KNeighborsClassifier 모듈을 import 하고 객체를 생성한다 (KNN 알고리즘을 사용하기 위해서).
+    from sklearn.neighbors import KNeighborsClassifier
+    k = KNeighborsClassifier()
+5. 기존의 데이터 세트를 훈련 세트와 테스트 세트로 나눠준다.
+    from sklearn.model_selection import train_test_split
+    train_input, test_input, train_target, test_target = train_test_split(fish_data, fish_target, stratify = fish_target, random_state = 42)
+        <-- 예제의 특성상 계속 같은 난수가 나와야 하므로 randon_state을 지정해줬고, 샘플링 편향을 막기 위해 stratify 변수를 지정해줬다.
+6. 이제 훈련과 테스트를 하면 되는데 그 전에, 지금의 x, y 축이 각각 단위가 다른데 KNN 알고리즘은 이 영향을 받으므로 단위를 맞춰주는 스케일링을 해줘야 한다. 표준편차를 이용.
+   중요한 점은 훈련 세트와 테스트 세트 모두 다 스케일링을 해줘야 한다는 것이다.
+    mean = numpy.mean(train_input, axis = 0)
+    std = numpy.std(train_input, axis = 0)
+    train_scaled = (train_input - mean)/std
+7. 훈련 세트로 훈련을 시키고(KNN의 경우 훈련보다는 저장이 맞는 표현이지만)
+    k.fit(train_scaled, train_target)
+8. 테스트 세트로 확인을 하면 끝.
+    k.score(test_scaled, test_target)
+
+만약 새로운 생선 한 마리 new를 테스트해보고 싶다고 하면 k.predict([new]) 해주면 되는데, 중요한 것은 이 new 값은 역시나 scaled value여야 한다는 것이다.
+그리고 스킵했지만 random 난수 받는 등의 과정이 있다.
+
+
+● KNN 회귀
+
+* 회귀: 전에 다뤘던 것은 샘플을 몇 개의 클래스 중 하나로 분류하는 '분류'였다면, 이번에는 임의의 어떤 값을 예측하는 알고리즘 즉, '회귀'.
+
+농어를 무게 단위로 판매하려 함. 농어의 다른 측량값들은 있는데 무게를 예측해야 하는 상황. 고르는 게 아니라 예측이 필요.
+현재 가지고 있는 것: 무게를 정확하게 측정한 샘플 56마리에 대한 데이터.
+다행히도 이전에 썼던 KNN 알고리즘을 분류 뿐 아니라 회귀에도 사용할 수 있다는 소식.
+기존에는 근처의 데이터 중 많은 클래스의 클래스로 분류를 했다면 이번에는 근처의 데이터들의 평균값을 내어 반환함.
+
+- 데이터 준비
+농어의 길이를 특성으로 하고 무게를 타깃으로.
+
+
+- 결정 계수(R^2):
+사이킷런의 KNN 회귀 클래스는 KNeighborsRegressor임. 이전에 썼던 KNN 분류 클래스인 KNeighborsClassifier와 매우 비슷. 객체를 생성하고 fit() 메서드로 회귀 모델을 훈련.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
