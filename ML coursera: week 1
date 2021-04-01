@@ -1,0 +1,62 @@
+- Beomjoo Jayden Kim's note from coursera Machine Learning lecture by Andrew Ng
+
+
+the web search engines work so well becasue a learning algorithm has learned how to rank web pages.
+face recognitions from FB is also machine learning. SPAM filtering is also ML.
+the best way to make a human-like machine is to mimic how the human brain learns.
+we'll learn about the state-of-the-art things, but it's also important to know how to apply things on real stuffs.
+machine learning has been developed as a new capability for computers as it touches many segments of industry.
+machine learning is important not only in silicon valley but in various aspects, actually almost everything.
+  web click data, medical records, biology, engineering applications, autonomous helicopter, handwriting recognition, NLP, Computer Vision...
+
+
+● What is Machine Learning?
+
+definition(Arthur Samuel): the field of study that gives computers the ability to learn without being explicitly learned.
+Samuel's checkers playing program in 1950.
+Samuel's computer program has the patience to play tens of thousands of games against itself, and no human has the patience to play that many games.
+the computer was able to get so much more experiences that it eventually beat human checker players in a short time.
+definition(Tom Mitchell): learn from experience(E) by doing task(T) and some performance measure(P), if its performance on T, as measured as P, improves with experience E.
+ -> summing-up: train itself by doing tasks and experience meanwhile and thus the performance improves!
+
+Machine Learning algorithms:
+1. Supervised learning: humans teach the computer how to do something
+2. Unsupervised learning: let the computer learn how to do something
++ reinforcement learning, recommender systems...
+
+Teaching about learning algorithms is like giving a set of tools. but more important step is teaching how to apply these!
+
+
+● Supervised Learning
+definition: type of machine learning that human give a computer a data set in which the 'right answers' are given so that it can train itself with the data
+most common type of machine learning problem.
+
+example 1:  a person A wants to buy a house in Portland, and A would like to know how much will be appropriate for a specific size of house so that he will not be scammed.
+            he uses a machine learning program and puts size - price data into the computer. <- Supervised Learning
+            the data are spread on the graph, and A now can choose which method to use - drawing a line, or a parabola, or any other things to find the answer to the question,
+            "what is the actual proper price to buy the type of house?"                      <- Regression
+
+* Regression: we try to predict a continuous valued output based on the given data set
+
+example 2:  there are medical records and we are trying to predict of a breast cancer as malignant or benign. if malignant tumor, harful, if benign tumor, harmless.
+            malignant = 1, benign = 0                                                                   <- Supervised Learning
+            the question is, "can you estimate the probability of a tumor being a malignant tumor?"     <- Classification problem
+            maybe more features will be added like, age, uniformity of cell size of the tumor, etc.
+
+for some learning problems, though, will want to have not only 3 or 5 features but have an infinite number of features. how do we even store the data?
+-> we use an algorithm called the Support Vector Machine, a trick that will allow a computer to deal with an infinite number of features.
+
+
+● Unsupervised Learning
+
+
+
+
+
+
+
+
+
+
+
+
