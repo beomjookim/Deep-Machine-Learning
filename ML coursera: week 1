@@ -28,12 +28,13 @@ Teaching about learning algorithms is like giving a set of tools. but more impor
 
 
 ● Supervised Learning
+
 definition: type of machine learning that human give a computer a data set in which the 'right answers' are given so that it can train itself with the data
 most common type of machine learning problem.
 
-example 1:  a person A wants to buy a house in Portland, and A would like to know how much will be appropriate for a specific size of house so that he will not be scammed.
+example 1:  a person A wants to buy a house in Portland, and A would like to know how much is appropriate for a specific size of house so that he will not be scammed.
             he uses a machine learning program and puts size - price data into the computer. <- Supervised Learning
-            the data are spread on the graph, and A now can choose which method to use - drawing a line, or a parabola, or any other things to find the answer to the question,
+            the data are spread on the graph, and A now can choose which method to use - drawing a line, or a parabola, or other things to find the answer to the question,
             "what is the actual proper price to buy the type of house?"                      <- Regression
 
 * Regression: we try to predict a continuous valued output based on the given data set
@@ -48,15 +49,33 @@ for some learning problems, though, will want to have not only 3 or 5 features b
 
 
 ● Unsupervised Learning
-in unsupervised learning, we're gien the data set and we're not told what to do with it and what it is. Instead we're just told, here's a data set, can you find some structure?
+
+in unsupervised learning, we're gien the data set without a label and not told what to do with it. We're just told, 'here's a data set, can you find some structure?'
+
+if the graph shows two seperate groups, we try to group each and say there are two groups.              <- clustering algorithm (one of unsupervised learning)
+
+example of clustering algo: how google news sorts tens of thousands of news feeds into the related fields each.
+second example: we have bunch of DNA data, we don't know what's in the data and what to do with the data but, can you automatically find structure in the data?
+                -> here again, we're not giving any right answer to the alrgorithm so this is a type of unsupervised learning.
++ organize computing clusters, social network analysis, market segmentation, astronomical data analysis...               
+
+cocktail party problem: there are two people talking at the same time at the cocktail party. we want to recognize what person A's saying, but two ppl's voices are being 
+                        overlapped and we need to distinguish the voice.
+                        what we can do is that we record the voices with two mic set at different place and use the record.
+                        this is done with a line of code:           [w,s,v] = svd((repmat(sum(x. *x,1), size(x,1),1).*x)*x');
+                        
+we do not understand what the code says but we can see that it's this simple. with octave and matlab, things can be this simple.
+in silicon valley, we first prototype the software in Octave because software in Octave makes it incredibly fast to implement the algos.
+these can be done in C++ and Java also but they are much more complicated. even at work, usually you start with Octave and do C++ later.
 
 
+● Linear Regression (Supervised)
+
+Portland Housing problem from above: regression problem.
+    m = # of training examples,     x's = input variable / features,      y's = output variable / 'target' variable
+
+Training Set => Learning Algorithm => Hypothesis(H) with input of size of house and output of estimated price
+        in Linear Regression, H is an univariate linear regression = Regression with one variable.
 
 
-
-
-
-
-
-
-
+### START FROM THIS SPOT!
