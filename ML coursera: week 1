@@ -74,7 +74,7 @@ these can be done in C++ and Java also but they are much more complicated. even 
 Portland Housing problem from above: regression problem.
     m = # of training examples,     x's = input variable / features,      y's = output variable / 'target' variable
 
-Training Set => Learning Algorithm => Hypothesis(H) with input of size of house and output of estimated price
+Training Set => Learning Algorithm => Hypothesis(H) with input of size of house(x) and output of estimated price(y)
         in Linear Regression, H is an univariate linear regression = Regression with one variable.
 
 
