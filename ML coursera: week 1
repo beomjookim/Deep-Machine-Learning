@@ -80,53 +80,35 @@ Training Set => Learning Algorithm => Hypothesis(H) with input of size of house(
 
 ● Cost Function
 
-This let us figure out how to fit the best possible straight line to the data. "Best" means the smaller difference between the line and the original set of data.
-The difference for each spot between the new line and original set, and this value should be minimized. We use squared error function.
+this let us figure out how to fit the best possible straight line to the data. "Best" means the smaller difference between the line and the original set of data.
+the difference for each spot between the new line and original set, and this value should be minimized. We call this Squared Error Function.
 
-J(θ 
-0
-​	
- ,θ 
-1
-​	
- )= 
-2m
-1
-​	
-  
-i=1
-∑
-m
-​	
- ( 
-y
-^
-​	
-  
-i
-​	
- −y 
-i
-​	
- ) 
-2
- = 
-2m
-1
-​	
-  
-i=1
-∑
-m
-​	
- (h 
-θ
-​	
- (x 
-i
-​	
- )−y 
-i
-​	
- ) 
-2
+we call the hypothesis function as h(x) and the cost function as J(Θ0, Θ1).
+
+example I: simplified version of J is when Θ0 = 0. thus, we try to find the relationship between h(x) function and J(Θ1) function.
+           when doing Linear Regression, we want J to be minimized. we draw graphs of h(x) and J(Θ1) and we find that J = 0 minimum when Θ1 = 1.
+           now we now that the value of J(Θ1) = 0 when Θ1 = 1 and this is minimum.
+           <<수식 집어넣기>>
+-> nothing hard. just an example of finding Θ1 value. get to know the relationship between h(x) and J(Θ0, Θ1).           
+
+example II: in example I, we simplified little too much that we had only one variable instead of two. and this made the algo not precise enough.
+            we use 'contour(등고선)'. simple what contour is that we see the 3D graph of J(Θ0, Θ1) from above. Θ0 in X-axis, Θ1 in Y-axis. the values on the grid are J.
+
+so now we know what 'algorithm ' does - it goes thru this machanism and get the answer.
+
+
+● Gradient Descent for linear regression
+
+Gradient Descent(경사 하강법) is a general algorithm used when we try to find a minimum value. We can use Gradient Algorithm, of course, for linear regression.
+           <<수식 집어넣기>>
+
+When it comes to math expression, := is called 'column equal' and is used for an assignment. and the = sign is used as a 'truth assertion'.
+
+
+
+
+
+
+
+
+
