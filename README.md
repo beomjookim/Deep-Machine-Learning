@@ -6,7 +6,8 @@ Studying Machine-Learning with coursera lecture by prof. Andrew Ng, and a book c
 
 Basically, I'll go over a week-long stuff A DAY. We have 11 weeks- stuffs, so it will take about two weeks without weekends.
 
-200405: Week 1, 2: linear regression with a single variable & linear algebra review, linear regression with multiple variables 
+200405: Week 1, 2: linear regression with a single variable & 
+        linear algebra review, linear regression with multiple variables 
 200406: Week 3: Octave, Matlab tutorial & Logistic Regression & Regularization
 200407: Week 4: Neural Networks: Representation
 200408: Week 5: Neural Networks: Learning
