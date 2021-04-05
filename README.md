@@ -1,7 +1,7 @@
 # Studying-Machine-Learning
 Studying Machine-Learning with coursera lecture by prof. Andrew Ng, and a book called 'Self-Studying ML'
 
-200401 - 200416 : Take Machine-Learning course from Coursera    https://www.coursera.org/learn/machine-learning/home/welcome
+200401 - 200416 : Take Machine-Learning course from Coursera    https://www.coursera.org/learn/machine-learning/home/welcome  
 200419 - ...    :  
   
 Basically, I'll go over a week-long stuff A DAY. We have 11 weeks- stuffs, so it will take about two weeks without weekends.  
