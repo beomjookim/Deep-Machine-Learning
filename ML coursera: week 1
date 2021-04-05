@@ -81,9 +81,52 @@ Training Set => Learning Algorithm => Hypothesis(H) with input of size of house(
 ● Cost Function
 
 This let us figure out how to fit the best possible straight line to the data. "Best" means the smaller difference between the line and the original set of data.
-The difference for each spot between the new line and original set, and this value should be minimized.
+The difference for each spot between the new line and original set, and this value should be minimized. We use squared error function.
 
-![CodeCogsEqn](https://user-images.githubusercontent.com/29809668/113527491-a81f8c80-95f8-11eb-91ab-6f7f1c09ba45.gif)
-
-
-
+J(θ 
+0
+​	
+ ,θ 
+1
+​	
+ )= 
+2m
+1
+​	
+  
+i=1
+∑
+m
+​	
+ ( 
+y
+^
+​	
+  
+i
+​	
+ −y 
+i
+​	
+ ) 
+2
+ = 
+2m
+1
+​	
+  
+i=1
+∑
+m
+​	
+ (h 
+θ
+​	
+ (x 
+i
+​	
+ )−y 
+i
+​	
+ ) 
+2
