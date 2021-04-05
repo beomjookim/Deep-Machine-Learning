@@ -17,7 +17,7 @@ Samuel's checkers playing program in 1950.
 Samuel's computer program has the patience to play tens of thousands of games against itself, and no human has the patience to play that many games.
 the computer was able to get so much more experiences that it eventually beat human checker players in a short time.
 definition(Tom Mitchell): learn from experience(E) by doing task(T) and some performance measure(P), if its performance on T, as measured as P, improves with experience E.
- -> summing-up: train itself by doing tasks and experience meanwhile and thus the performance improves!
+ -> Summing-Up: train itself by doing tasks and experience meanwhile and thus the performance improves!
 
 Machine Learning algorithms:
 1. Supervised learning: humans teach the computer how to do something
