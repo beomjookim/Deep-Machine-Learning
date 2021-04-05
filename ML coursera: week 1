@@ -82,9 +82,8 @@ Training Set => Learning Algorithm => Hypothesis(H) with input of size of house(
 
 This let us figure out how to fit the best possible straight line to the data. "Best" means the smaller difference between the line and the original set of data.
 Math expression goes like this:
-<p align="center"><img width="10%" src="/yaktocat.png" /></p>
+<p align="center"><img width="10%" src="https://latex.codecogs.com/gif.latex?%5Csum%20%28h%28x%5E%7Bi%7D%29%20-%20y%5E%7Bi%7D%29%5E%7B2%7D" /></p>
   the difference for each spot between the new line and original set, and this value should be minimized.
-
 
 
 
