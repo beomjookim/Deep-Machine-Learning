@@ -78,4 +78,13 @@ Training Set => Learning Algorithm => Hypothesis(H) with input of size of house(
         in Linear Regression, H is an univariate linear regression = Regression with one variable.
 
 
-### START FROM THIS SPOT!
+● Cost Function
+
+This let us figure out how to fit the best possible straight line to the data. "Best" means the smaller difference between the line and the original set of data.
+Math expression goes like this:
+\sum (h(x^{i}) - y^{i})^{2} <- the difference for each spot between the new line and original set, and this value should be minimized.
+
+
+
+
+
