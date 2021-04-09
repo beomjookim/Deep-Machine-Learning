@@ -11,21 +11,25 @@ this was because the Session syntax has been changed on the new TF version.
 tf.Session() is used in TF ver. 1.x.x. but mine is 3.9.2.(used tf.__version__)
 in 3.9.2, there's no Session() required.
 
+
+# LAB2 code:
+
 import numpy as np
 import tensorflow as tf
 
 x_train = [1, 2, 3, 4]
 y_train = [0, -1, -2, -3]
+
 # we use model called Sequential() which is in keras library.
 tf.model = tf.keras.Sequential()
 
 # units == output shape, input_dim == input shape
 tf.model.add(tf.keras.layers.Dense(units=1, input_dim=1))
 
-sgd = tf.keras.optimizers.SGD(learning rate = 0.1)  # SGD == standard gradient descendent
+sgd = tf.keras.optimizers.SGD(learning_rate = 0.1)  # SGD == standard gradient descendent
 tf.model.compile(loss='mse', optimizer=sgd)         # mse == mean_squared_error, 1/m * sig (y'-y)^2
 
-# prints summary of the model to the terminal
+# prints summary of the model
 tf.model.summary()
 
 # fit() executes training
