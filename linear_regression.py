@@ -23,10 +23,12 @@ x_train = [1, 2, 3, 4]
 y_train = [0, -1, -2, -3]
 
 # we use model called Sequential() which is in keras library.
+# Sequential() is good for one-input, one-output general layer stack.
 tf.model = tf.keras.Sequential()
 
 # units == output shape, input_dim == input shape
 tf.model.add(tf.keras.layers.Dense(units=1, input_dim=1))
+# keras.layers.Dense 는 input과 output 사이 중간다리 역할을 한다고 보면 된다.
 
 sgd = tf.keras.optimizers.SGD(learning_rate = 0.1)  # SGD == standard gradient descendent
 tf.model.compile(loss='mse', optimizer=sgd)         # mse == mean_squared_error, 1/m * sig (y'-y)^2
