@@ -18,7 +18,7 @@ y_train = [0, -1, -2, -3]
 tf.model = tf.keras.Sequential()
 tf.model.add(tf.keras.layers.Dense(units=1, input_dim=1))
 
-sgd = tf.keras.optimizers.SGD(learning_rate=0.1)
+sgd = tf.keras.optimizers.SGD(learning_rate=0.1) # learning rate is the alpha value from GDA.
 tf.model.compile(loss='mse', optimizer=sgd)
 
 tf.model.summary()
