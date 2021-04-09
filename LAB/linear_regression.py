@@ -14,7 +14,7 @@ in 3.9.2, there's no Session() required.
 '''
 
 
-# LAB2 code:
+# code:
 
 import numpy as np
 import tensorflow as tf
@@ -27,16 +27,18 @@ y_train = [0, -1, -2, -3]
 tf.model = tf.keras.Sequential()
 
 # units == output shape, input_dim == input shape
+# keras.layers.Dense is a non-viewable process in between input and output.
+# units is the dim of the output space, input_dim is the dim of the input space.
 tf.model.add(tf.keras.layers.Dense(units=1, input_dim=1))
-# keras.layers.Dense 는 input과 output 사이 중간다리 역할을 한다고 보면 된다.
 
-sgd = tf.keras.optimizers.SGD(learning_rate = 0.1)  # SGD == standard gradient descendent
+sgd = tf.keras.optimizers.SGD(learning_rate = 0.1)  # SGD == Standard Gradient Descendent
 tf.model.compile(loss='mse', optimizer=sgd)         # mse == mean_squared_error, 1/m * sig (y'-y)^2
 
 # prints summary of the model
 tf.model.summary()
 
 # fit() executes training
+# one epoch is when an entire dataset is passed forward and backward thru the neural network
 tf.model.fit(x_train, y_train, epochs=200)
 
 # predict() returns predicted value
