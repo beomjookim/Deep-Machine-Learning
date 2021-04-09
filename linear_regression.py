@@ -1,4 +1,5 @@
-<Downloading TF and doing some tutorials on Python IDLE>
+'''
+Downloading TF and doing some tutorials on Python IDLE
 
 I already have Python downloaded on my Desktop so download TensorFlow first.
 do 'pip3 install tensorflow' on CMD and it will do.
@@ -10,6 +11,7 @@ then different error showed, "module 'tensorflow' has no attribute 'Session'"
 this was because the Session syntax has been changed on the new TF version.
 tf.Session() is used in TF ver. 1.x.x. but mine is 3.9.2.(used tf.__version__)
 in 3.9.2, there's no Session() required.
+'''
 
 
 # LAB2 code:
